@@ -52,6 +52,8 @@
             </select>
         </div>
 
+        <input type="hidden" name="formSubmitted" id="formSubmitted" value="1" />
+
         <button type="submit" class="btn btn-primary">Get Offers</button>&nbsp;
         <a href="">Reset search criteria</a>
     </form>

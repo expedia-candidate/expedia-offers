@@ -28,13 +28,20 @@
             @else
                 <h2 class="card-title">Hotel Offers</h2>
 
-                @if($offersCount)
-                    <div class="alert alert-info">We found <b>{{$offersCount}}</b> offer(s) matching your search criteria.</div>
+                @if(app('request')->input('formSubmitted'))
+                    @if($offersCount)
+                        <div class="alert alert-info">We found <b>{{$offersCount}}</b> offer(s) matching your search criteria.</div>
 
-                    {{--Draw the information of each hotel offer--}}
-                    @each('modules.offerInfo', $hotelOffers, 'offerInfo')
+                        {{--Draw the information of each hotel offer--}}
+                        @each('modules.offerInfo', $hotelOffers, 'offerInfo')
+                    @else
+                        <div class="alert alert-secondary">Sorry, we found no offers matching your search criteria.</div>
+                    @endif
                 @else
-                    <div class="alert alert-secondary">Sorry, we found no offers matching your search criteria.</div>
+                    @if($offersCount)
+                        {{--Draw default hotel offers--}}
+                        @each('modules.offerInfo', $hotelOffers, 'offerInfo')
+                    @endif
                 @endif
             @endif
 
