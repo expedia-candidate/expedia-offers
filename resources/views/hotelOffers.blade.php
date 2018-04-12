@@ -15,6 +15,10 @@
 
         <div class="col-md-9 col-sm-12 col-xs-12">
 
+            <div class="col-md-auto">
+                <h2 class="card-title font-weight-bold">Hotel Offers</h2>
+            </div>
+
             {{--Errors--}}
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -26,8 +30,6 @@
                     </ul>
                 </div>
             @else
-                <h2 class="card-title">Hotel Offers</h2>
-
                 @if(app('request')->input('formSubmitted'))
                     @if($offersCount)
                         <div class="alert alert-info">We found <b>{{$offersCount}}</b> offer(s) matching your search criteria.</div>
@@ -44,8 +46,7 @@
                     @endif
                 @endif
             @endif
-
-    </div>
+        </div>
     </div>
 @stop
 
