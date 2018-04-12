@@ -22,9 +22,11 @@
 
                 <div class="float-left">
                     {{--Discount--}}
-                    <h5 style="color: #ff0000">
-                        <b>Today {{ $offerInfo['hotelPricingInfo']['percentSavings'] }}% Off</b>
-                    </h5>
+                    @if($offerInfo['hotelPricingInfo']['percentSavings'] > 0)
+                        <h5 style="color: #ff0000">
+                            <b>Today {{ $offerInfo['hotelPricingInfo']['percentSavings'] }}% Off</b>
+                        </h5>
+                    @endif
 
                     {{--Cross out price--}}
                     <h4 style="text-decoration: line-through;">
