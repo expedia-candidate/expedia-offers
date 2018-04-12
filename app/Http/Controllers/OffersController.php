@@ -53,10 +53,16 @@ class OffersController extends Controller
 
     private function validateSearchCritera($request)
     {
+        if ($request->input('minTripStartDate') == null) {
+            $maxTripDateValidation = 'after_or_equal:today';
+        } else {
+            $maxTripDateValidation ='after:' . $request->input('minTripStartDate');
+        }
+        
         return $this->validate($request, [
                             'destinationName'   => 'nullable|string|max:50',
                             'minTripStartDate'  => 'nullable|date|after_or_equal:today',
-                            'maxTripStartDate'  => 'nullable|date|after:' . $request->input('minTripStartDate'),
+                            'maxTripStartDate'  => 'nullable|date|' . $maxTripDateValidation,
                             'lengthOfStay'      => 'nullable|numeric',
                             'totalRate'         => 'nullable|string',
                             'minStarRating'     => 'nullable|numeric|between:1,5',
