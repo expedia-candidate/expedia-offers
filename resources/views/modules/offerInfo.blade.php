@@ -20,33 +20,34 @@
             {{--Offer price--}}
             <div class="card-body">
 
-                {{--Price--}}
                 <div class="float-left">
                     {{--Discount--}}
                     <h5 style="color: #ff0000">
                         <b>Today {{ $offerInfo['hotelPricingInfo']['percentSavings'] }}% Off</b>
                     </h5>
 
+                    {{--Cross out price--}}
                     <h4 style="text-decoration: line-through;">
-                        {{ $offerInfo['hotelPricingInfo']['currency'] }} {{ $offerInfo['hotelPricingInfo']['crossOutPriceValue'] }}
+                        {{ $offerInfo['hotelPricingInfo']['currency'] }} {{ number_format($offerInfo['hotelPricingInfo']['crossOutPriceValue'], 2) }}
                     </h4>
 
+                    {{--Total price--}}
                     <h4>
                         <b>
-                            {{ $offerInfo['hotelPricingInfo']['currency'] }} {{ $offerInfo['hotelPricingInfo']['totalPriceValue'] }}
+                            {{ $offerInfo['hotelPricingInfo']['currency'] }} {{ number_format($offerInfo['hotelPricingInfo']['totalPriceValue'], 2) }}
+                            - {{ $offerInfo['offerDateRange']['lengthOfStay'] }} night(s)
                         </b>
-                        for <b>{{ $offerInfo['offerDateRange']['lengthOfStay'] }} nights</b>
                     </h4>
                 </div>
 
-
-                {{--Hotel image--}}
                 <div class="float-right">
+                    {{--Hotel image--}}
                     <p align="center">
                         <a href="{{ urldecode($offerInfo['hotelUrls']['hotelSearchResultUrl']) }}" class="card-link">
                             <img src="{{ $offerInfo['hotelInfo']['hotelImageUrl'] }}" />
                         </a>
                     </p>
+                    {{--Get offer button--}}
                     <p>
                         <a href="{{ urldecode($offerInfo['hotelUrls']['hotelInfositeUrl']) }}"
                                 class="btn btn-success" type="button">Get this Offer</a>
@@ -55,6 +56,7 @@
             </div>
         </div>
 
+        {{--Offers separater--}}
         <div class="col-md-auto">
             <hr />
         </div>
