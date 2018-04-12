@@ -1,0 +1,66 @@
+<?php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Classes\HotelOffers;
+use App\Classes\Entities\Cities;
+use App\Classes\Entities\PriceRates;
+
+class OffersController extends Controller
+{
+    public function showOffers(Request $request)
+    {
+        // Validate the search criteria.
+        $this->validateSearchCritera($request);
+
+        // Get the search criteria.
+        $destinationName  = $request->input('destinationName')   ?? '';
+        $minTripStartDate = $request->input('minTripStartDate')  ?? '';
+        $maxTripStartDate = $request->input('maxTripStartDate')  ?? '';
+        $lengthOfStay     = $request->input('lengthOfStay')      ?? '';
+        $totalRate        = $request->input('totalRate')         ?? '';
+        $minStarRating    = $request->input('minStarRating')     ?? '';
+        $maxStarRating    = $request->input('maxStarRating')     ?? '';
+
+        $priceRates       = PriceRates::getMinMaxPrice($totalRate);
+        $minTotalRate     = $priceRates['minTotalRate'];
+        $maxTotalRate     = $priceRates['maxTotalRate'];
+
+        // Build the search criteria object.
+        $searchCriteria = new HotelOffers();
+
+        $searchCriteria->destinationName  = $destinationName;
+        $searchCriteria->minTripStartDate = $minTripStartDate;
+        $searchCriteria->maxTripStartDate = $maxTripStartDate;
+        $searchCriteria->lengthOfStay     = $lengthOfStay;
+        $searchCriteria->minStarRating    = $minStarRating;
+        $searchCriteria->maxStarRating    = $maxStarRating;
+        $searchCriteria->minTotalRate     = $minTotalRate;
+        $searchCriteria->maxTotalRate     = $maxTotalRate;
+
+        $hotelOffers = $searchCriteria->getHotelOffers();
+
+        $hotelOffers = $hotelOffers['offers']['Hotel'] ?? []; //pass only hotel index to view
+
+        // Render hotelOffers view.
+        return view('hotelOffers', [
+                    'hotelOffers'   => $hotelOffers,
+                    'offersCount'   => count($hotelOffers),
+                    'cities'        => Cities::getCities(),
+                    'priceRates'    => PriceRates::getPriceRates()]
+        );
+    }
+
+    private function validateSearchCritera($request)
+    {
+        return $this->validate($request, [
+                            'destinationName'   => 'nullable|string|max:50',
+                            'minTripStartDate'  => 'nullable|date|after_or_equal:today',
+                            'maxTripStartDate'  => 'nullable|date|after:' . $request->input('minTripStartDate'),
+                            'lengthOfStay'      => 'nullable|numeric',
+                            'totalRate'         => 'nullable|string',
+                            'minStarRating'     => 'nullable|numeric|between:1,5',
+                            'maxStarRating'     => 'nullable|numeric|between:1,5|min:' . $request->input('minStarRating'),
+        ]);
+    }
+}
