@@ -60,7 +60,7 @@ class OffersController extends Controller
         }
         
         return $this->validate($request, [
-                            'destinationName'   => 'nullable|string|max:50',
+                            'destinationName'   => 'nullable|string|in: ' . implode(',', Cities::getCities()),
                             'minTripStartDate'  => 'nullable|date|after_or_equal:today',
                             'maxTripStartDate'  => 'nullable|date|' . $maxTripDateValidation,
                             'lengthOfStay'      => 'nullable|numeric',
