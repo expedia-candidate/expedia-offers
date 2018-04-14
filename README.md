@@ -14,5 +14,5 @@ A simple site hosted for free on Heroku that consumes <a href="https://offersvc.
     <li>Install <a href="https://getcomposer.org/">Composer</a>.</li>
     <li>Run: <i>composer global require "laravel/installer"</i>.</li>
     <li>Clone this repository.</li>
-    <li>Create a VirtualHost on Appache for your project.</b>
+    <li>Create a VirtualHost on Appache for your project (E.g: http://expedia-offers.dev/)</b>
 </ol>
