@@ -7,7 +7,7 @@
             {{--Hotel name, and location--}}
             <p class="card-title">
                 <h4>
-                    <a href="{{ urldecode($offerInfo['hotelUrls']['hotelSearchResultUrl']) }}" class="card-link">
+                    <a href="{{ urldecode($offerInfo['hotelUrls']['hotelSearchResultUrl']) }}" target="_blank" class="card-link">
                         {{ $offerInfo['hotelInfo']['hotelName']}}</a>
                         <div style="color: #0056b3" class="float-right">
                             <b>{{ $offerInfo['hotelInfo']['hotelStarRating'] }}/5</b>
@@ -50,14 +50,14 @@
                 <div class="float-right">
                     {{--Hotel image--}}
                     <p align="center">
-                        <a href="{{ urldecode($offerInfo['hotelUrls']['hotelSearchResultUrl']) }}" class="card-link">
+                        <a href="{{ urldecode($offerInfo['hotelUrls']['hotelSearchResultUrl']) }}" target="_blank" class="card-link">
                             <img src="{{ $offerInfo['hotelInfo']['hotelImageUrl'] }}" />
                         </a>
                     </p>
                     {{--Get offer button--}}
                     <p>
                         <a href="{{ urldecode($offerInfo['hotelUrls']['hotelInfositeUrl']) }}"
-                                class="btn btn-success" type="button">Get this Offer</a>
+                           target="_blank" class="btn btn-success" type="button">Get this Offer</a>
                     </p>
                 </div>
             </div>
