@@ -6,7 +6,7 @@
 
 namespace App\Classes\Entities;
 
-class PriceRates
+class TotalRates
 {
     public static function getTotalRates() :array
     {

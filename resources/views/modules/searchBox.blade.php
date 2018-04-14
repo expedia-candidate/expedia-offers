@@ -29,8 +29,8 @@
 
         <div class="form-group">
             <select id="totalRate" class="form-control" name="totalRate">
-                <option disabled selected>-Price Range-</option>
-                @foreach ($priceRates as $rate)
+                <option disabled selected>-Total Rate Range-</option>
+                @foreach ($totalRates as $rate)
                     <option {{ (app('request')->input('totalRate') == $rate ? 'selected': '') }}>{{ $rate }}</option>
                 @endforeach
             </select>

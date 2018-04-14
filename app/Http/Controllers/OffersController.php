@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Classes\HotelOffers;
 use App\Classes\Entities\Cities;
-use App\Classes\Entities\PriceRates;
+use App\Classes\Entities\TotalRates;
 
 class OffersController extends Controller
 {
@@ -22,7 +22,7 @@ class OffersController extends Controller
         $minStarRating    = $request->input('minStarRating')     ?? '';
         $maxStarRating    = $request->input('maxStarRating')     ?? '';
 
-        $priceRates       = PriceRates::getMinMaxPrice($totalRate);
+        $priceRates       = TotalRates::getMinMaxRate($totalRate);
         $minTotalRate     = $priceRates['minTotalRate'];
         $maxTotalRate     = $priceRates['maxTotalRate'];
 
@@ -47,7 +47,7 @@ class OffersController extends Controller
                     'hotelOffers'   => $hotelOffers,
                     'offersCount'   => count($hotelOffers),
                     'cities'        => Cities::getCities(),
-                    'priceRates'    => PriceRates::getPriceRates()]
+                    'totalRates'    => TotalRates::getTotalRates()]
         );
     }
 
