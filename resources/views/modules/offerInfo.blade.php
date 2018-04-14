@@ -9,7 +9,9 @@
                 <h4>
                     <a href="{{ urldecode($offerInfo['hotelUrls']['hotelSearchResultUrl']) }}" class="card-link">
                         {{ $offerInfo['hotelInfo']['hotelName']}}</a>
-                        <div class="float-right"> <b>{{ $offerInfo['hotelInfo']['hotelStarRating'] }}/5</b></div>
+                        <div style="color: #0056b3" class="float-right">
+                            <b>{{ $offerInfo['hotelInfo']['hotelStarRating'] }}/5</b>
+                        </div>
                 </h4>
 
                  <div>
@@ -40,6 +42,9 @@
                             - {{ $offerInfo['offerDateRange']['lengthOfStay'] }} night(s)
                         </b>
                     </h4>
+
+                    {{-- Total reviews --}}
+                    <div style="color: #005cbf" class="sub font-weight-bold ">Total Reviews: {{ number_format($offerInfo['hotelInfo']['hotelReviewTotal']) }}</div>
                 </div>
 
                 <div class="float-right">
