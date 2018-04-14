@@ -6,7 +6,7 @@ A simple site hosted for free on Heroku that consumes <a href="https://offersvc.
 
 ## Technology
 
-<p>The site is built using <b>Laravel 5.6</b></p>
+<p>The site is built using <b>Laravel 5.6 and tested in <a href="https://travis-ci.org/">Travis-CI</a>.</p>
 
 ## How to Run this Project Locally on Windows?
 <ol>
