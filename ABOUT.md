@@ -4,7 +4,7 @@
 <p>
     I have a good experience with PHP, but I am new with Laravel, this is my first project on Laravel.
     <br />
-    I used this assessment to be a chance for me to learn new technology, and I chose Laravel.
+    I used this assessment to be a chance for me to learn new technology, and I chose Laravel because of the performance, features, scalability it offer. It follows Model View Controller (MVC), and supports object oriented programming.
 </p>
 
 ## Project Assumptions
