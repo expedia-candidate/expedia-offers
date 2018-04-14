@@ -19,12 +19,13 @@
     <li>I have back-end validation on search criteria.</li>
     <li>I don't have JavaScript validation on search critiera.</li>
     <li>I show the offers as I get them from the API without reorder them.</li>
-    <li>I don't apply any cluster on the search result.</li>
+    <li>I don't apply any clustering on the search result (To keep the task simple).</li>
+    <li>I found no query parameter to do search on price.</li>
+    <li>crossOutPriceValue: The price before discount.</li>
+    <li>totalPriceValue: The price after discount.</li>
 </ul>
 
 ## Search Criteria
-
-<p>I have six search criteria:</p>
 <ol>
     <li><b>Destination Name:</b> A look-up list I gathered it from the JSON API.</li>
     <li><b>Min Trip Start Date:</b> A date should be equal or more than today.</li>
