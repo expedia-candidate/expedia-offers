@@ -13,12 +13,12 @@
         </div>
 
         <div class="form-group">
-            <input id="minTripStartDate" type="date" class="form-control" name="minTripStartDate" placeholder="-Min Trip Date-"
+            <input id="minTripStartDate" type="text" class="form-control" name="minTripStartDate" placeholder="-Min Trip Date-"
                    value="{{ app('request')->input('minTripStartDate') }}">
         </div>
 
         <div class="form-group">
-            <input id="maxTripStartDate" type="date" class="form-control" name="maxTripStartDate" placeholder="-Max Trip Date-"
+            <input id="maxTripStartDate" type="text" class="form-control" name="maxTripStartDate" placeholder="-Max Trip Date-"
                    value="{{ app('request')->input('maxTripStartDate') }}">
         </div>
 
