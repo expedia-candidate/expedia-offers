@@ -1,3 +1,9 @@
 language: php
 php:
   - 7.2.3
+
+before_script:
+  - composer installer --no-interaction
+
+script:
+  - vendor/bin/phpunit
